@@ -28,7 +28,7 @@ func GetPeople(w http.ResponseWriter, r *http.Request) {
 
 //HealthCheck ok
 func HealthCheck(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("{Status:good}")
+	json.NewEncoder(w).Encode("{Status:ok}")
 }
 
 //GetPerson hh
