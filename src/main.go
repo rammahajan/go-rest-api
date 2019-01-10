@@ -15,6 +15,7 @@ func main() {
 	people = append(people, Person{ID: "2", Firstname: "Saurabh"})
 	log.Println("Starting")
 	router := mux.NewRouter()
+	router.HandleFunc("/", HealthCheck).Methods("GET")
 	router.HandleFunc("/people", GetPeople).Methods("GET")
 	router.HandleFunc("/people/{id}", GetPerson).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", router))
@@ -23,6 +24,11 @@ func main() {
 //GetPeople mbnj
 func GetPeople(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(people)
+}
+
+//HealthCheck ok
+func HealthCheck(w http.ResponseWriter, r *http.Request) {
+	json.NewEncoder(w).Encode("{Status:ok}")
 }
 
 //GetPerson hh
@@ -35,10 +41,6 @@ func GetPerson(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	json.NewEncoder(w).Encode(&Person{})
-}
-
-func CreatePerson(w http.ResponseWriter, r *http.Request) {
-
 }
 
 //Person data structure
