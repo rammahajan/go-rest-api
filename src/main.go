@@ -12,7 +12,7 @@ var people []Person
 func main() {
 
 	people = append(people, Person{ID: "1", Firstname: "Ram"})
-	people = append(people, Person{ID: "2", Firstname: "Saurabh"})
+	people = append(people, Person{ID: "2", Firstname: "Saurabh1"})
 	log.Println("Starting")
 	router := mux.NewRouter()
 	router.HandleFunc("/", HealthCheck).Methods("GET")
